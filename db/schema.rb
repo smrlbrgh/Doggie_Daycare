@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150521140735) do
+ActiveRecord::Schema.define(version: 20150521154914) do
 
   create_table "breeds", force: true do |t|
     t.string   "breed"
@@ -29,6 +29,10 @@ ActiveRecord::Schema.define(version: 20150521140735) do
     t.boolean  "in_daycare"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "dogs", ["breed_id"], name: "index_dogs_on_breed_id"
@@ -41,7 +45,7 @@ ActiveRecord::Schema.define(version: 20150521140735) do
     t.string   "secondary_phone"
     t.string   "address"
     t.string   "city"
-    t.string   "usstate"
+    t.string   "state"
     t.string   "zip"
     t.string   "emerg_name"
     t.string   "emerg_phone"
