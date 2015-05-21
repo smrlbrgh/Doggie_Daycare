@@ -18,8 +18,8 @@
     <% @dogs.each do |dog| %>
       <tr>
         <td><%= dog.name %></td>
-        <td><%= dog.owner %></td>
-        <td><%= dog.breed %></td>
+        <td><%= dog.owner.last_name %></td>
+        <td><%= dog.breed.breed %></td>
         <td><%= dog.dob %></td>
         <td><%= dog.vet %></td>
         <td><%= dog.vet_phone %></td>
