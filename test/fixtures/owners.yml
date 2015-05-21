@@ -7,7 +7,7 @@ one:
   secondary_phone: MyString
   address: MyString
   city: MyString
-  state: MyString
+  usstate: MyString
   zip: MyString
   emerg_name: MyString
   emerg_phone: MyString
@@ -19,7 +19,7 @@ two:
   secondary_phone: MyString
   address: MyString
   city: MyString
-  state: MyString
+  usstate: MyString
   zip: MyString
   emerg_name: MyString
   emerg_phone: MyString
