@@ -32,6 +32,19 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+
+gem 'thin'
+gem 'starter_generators'
+gem 'awesome_print'
+gem 'annotate'
+gem 'stamp'
+
+group :development do
+  gem 'quiet_assets'
+  gem 'faker'
+  gem 'populator'
+end
+
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
