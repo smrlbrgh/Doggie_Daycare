@@ -30,9 +30,9 @@
         <td><%= owner.zip %></td>
         <td><%= owner.emerg_name %></td>
         <td><%= owner.emerg_phone %></td>
-        <td><%= link_to 'Show', owner %></td>
-        <td><%= link_to 'Edit', edit_owner_path(owner) %></td>
-        <td><%= link_to 'Destroy', owner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', owner, class: "btn btn-success btn-xs" %></td>
+        <td><%= link_to 'Edit', edit_owner_path(owner), class: "btn btn-warning btn-xs" %></td>
+        <td><%= link_to 'Destroy', owner, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -40,4 +40,4 @@
 
 <br>
 
-<%= link_to 'New Owner', new_owner_path %>
+<%= link_to 'New Owner', new_owner_path, class: "btn btn-success btn-xs" %>

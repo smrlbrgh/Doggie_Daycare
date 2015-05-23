@@ -24,9 +24,9 @@
         <td><%= dog.vet %></td>
         <td><%= dog.vet_phone %></td>
         <td><%= dog.in_daycare %></td>
-        <td><%= link_to 'Show', dog %></td>
-        <td><%= link_to 'Edit', edit_dog_path(dog) %></td>
-        <td><%= link_to 'Destroy', dog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', dog, class: "btn btn-success btn-xs" %></td>
+        <td><%= link_to 'Edit', edit_dog_path(dog), class: "btn btn-warning btn-xs" %></td>
+        <td><%= link_to 'Destroy', dog, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Dog', new_dog_path %>
+<%= link_to 'New Dog', new_dog_path, class: "btn btn-success btn-xs" %>
