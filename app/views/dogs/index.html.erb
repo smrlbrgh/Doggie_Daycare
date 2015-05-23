@@ -1,6 +1,6 @@
 <h1>Listing dogs</h1>
 
-<table>
+<table class= "table">
   <thead>
     <tr>
       <th>Name</th>
@@ -24,7 +24,7 @@
         <td><%= dog.vet %></td>
         <td><%= dog.vet_phone %></td>
         <td><%= dog.in_daycare %></td>
-        <td><%= link_to 'Show', dog %></td>
+        <td><%= link_to 'Show', dog, class="btn btn-default" %></td>
         <td><%= link_to 'Edit', edit_dog_path(dog) %></td>
         <td><%= link_to 'Destroy', dog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
