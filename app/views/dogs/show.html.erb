@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  &nbsp
+</p>
+<p>
+<%= image_tag @dog.avatar.url(:medium), class: "img-responsive" %>
+<p>
   <strong>Name:</strong>
   <%= @dog.name %>
 </p>
@@ -34,11 +39,8 @@
   <strong>In daycare:</strong>
   <%= @dog.in_daycare %>
 </p>
-<p>
- <%= image_tag @dog.avatar.url %>
- <%= image_tag @dog.avatar.url(:medium) %>
- <%= image_tag @dog.avatar.url(:thumb) %>
-</p>
 
-<%= link_to 'Edit', edit_dog_path(@dog) %> |
-<%= link_to 'Back', dogs_path %>
+
+<%= link_to 'Edit', edit_dog_path(@dog), class: "btn btn-default btn-xs" %> |
+<%= link_to 'Back', dogs_path, class: "btn btn-default btn-xs" %>
+ <%= link_to 'Create New Dog', new_dog_path, class: "btn btn-info btn-xs" %>

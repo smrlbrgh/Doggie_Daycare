@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  &nbsp
+</p>
+<p>
   <strong>First name:</strong>
   <%= @owner.first_name %>
 </p>
@@ -50,5 +53,6 @@
   <%= @owner.emerg_phone %>
 </p>
 
-<%= link_to 'Edit', edit_owner_path(@owner) %> |
-<%= link_to 'Back', owners_path %>
+<%= link_to 'Edit', edit_owner_path(@owner), class: "btn btn-default btn-xs" %>
+<%= link_to 'Back', owners_path, class: "btn btn-default btn-xs" %>
+ <%= link_to 'Create New Owner', new_dog_path, class: "btn btn-info btn-xs" %>
