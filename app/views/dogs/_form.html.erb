@@ -18,11 +18,11 @@
   </div>
   <div class="field">
     <%= f.label :owner_id %><br>
-    <%= f.collection_select :owner_id, Owner.all, :id, :last_first, {prompt: "Select an owner"}, class: "form-control" %>
+    <%= f.collection_select :owner_id, Owner.all.order("last_name"), :id, :last_first, {prompt: "Select an owner"}, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :breed_id %><br>
-    <%= f.collection_select :breed_id, Breed.all, :id, :breed, {prompt: "Select a breed"}, class: "form-control" %>
+    <%= f.collection_select :breed_id, Breed.all.order("breed"), :id, :breed, {prompt: "Select a breed"}, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :dob %><br>
@@ -44,7 +44,7 @@
   </div>
   <div class="field">
    <%= f.label :avatar %><br>
-   <%= f.file_field :avatar %>
+   <%= f.file_field :avatar, class: "form-control" %>
  </div>
   <div class="actions">
     <%= f.submit %>
