@@ -13,6 +13,9 @@
       <th>Zip</th>
       <th>Emerg name</th>
       <th>Emerg phone</th>
+      <th>Show</th>
+      <th>Edit</th>
+      <th>Delete</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -30,9 +33,9 @@
         <td><%= owner.zip %></td>
         <td><%= owner.emerg_name %></td>
         <td><%= owner.emerg_phone %></td>
-        <td><%= link_to 'Show', owner, class: "btn btn-success btn-xs" %></td>
-        <td><%= link_to 'Edit', edit_owner_path(owner), class: "btn btn-warning btn-xs" %></td>
-        <td><%= link_to 'Destroy', owner, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>
+        <td><%= link_to ' ', owner, class: "fa fa-picture-o" %></td>
+        <td><%= link_to ' ', edit_owner_path(owner), class: "fa fa-pencil-square-o" %></td>
+        <td><%= link_to ' ', owner, method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash-o" %></td>
       </tr>
     <% end %>
   </tbody>
