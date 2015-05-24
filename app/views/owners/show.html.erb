@@ -4,6 +4,14 @@
   &nbsp
 </p>
 <p>
+  <strong> Fur babies:</strong>
+  <ul>
+    <% @owner.dogs.order('name').each do |dog| %>
+      <li><%= dog.name %></li>
+    <% end %>
+  </ul>
+</p>
+<p>
   <strong>First name:</strong>
   <%= @owner.first_name %>
 </p>
@@ -52,6 +60,7 @@
   <strong>Emerg phone:</strong>
   <%= @owner.emerg_phone %>
 </p>
+
 
 <%= link_to 'Edit', edit_owner_path(@owner), class: "btn btn-default btn-xs" %>
 <%= link_to 'Back', owners_path, class: "btn btn-default btn-xs" %>
