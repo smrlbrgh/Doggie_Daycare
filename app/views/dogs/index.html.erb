@@ -4,7 +4,7 @@
 
   <% @dogs.each do |dog| %>
     <div class="col-md-3">
-      <div class="panel panel-default">
+      <div class="panel panel-default <%='panel-success' if dog.in_daycare %>">
         <div class="panel-heading">
           <h3 class="panel-title"><%= dog.name %> <%= dog.owner.last_name %></h3>
         </div>
@@ -12,7 +12,7 @@
         <%= image_tag dog.avatar.url(:medium), class: "img-responsive" %>
         </div>
         <div class="panel-footer">
-        In Daycare? <%= dog.in_daycare %>
+        <!-- In Daycare? <%# dog.in_daycare %> -->
         <%= link_to ' ', dog, class: "fa fa-picture-o" %>
         <%= link_to ' ', edit_dog_path(dog), class: "fa fa-pencil-square-o" %>
         <%= link_to ' ', dog, method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash-o" %>
