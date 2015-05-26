@@ -13,43 +13,53 @@
 
   <div class="field">
     <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
+    <%= f.text_field :first_name, class:
+    "form-control", placeholder: "First Name" %>
   </div>
   <div class="field">
     <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
+    <%= f.text_field :last_name, class:
+    "form-control", placeholder: "Last Name" %>
   </div>
   <div class="field">
     <%= f.label :primary_phone %><br>
-    <%= f.text_field :primary_phone %>
+    <%= f.text_field :primary_phone, class:
+    "form-control", placeholder: "985-555-5555" %>
   </div>
   <div class="field">
     <%= f.label :secondary_phone %><br>
-    <%= f.text_field :secondary_phone %>
+    <%= f.text_field :secondary_phone, class:
+    "form-control", placeholder: "985-555-5555" %>
   </div>
   <div class="field">
     <%= f.label :address %><br>
-    <%= f.text_field :address %>
+    <%= f.text_field :address, class:
+    "form-control", placeholder: "123 Main Street" %>
   </div>
   <div class="field">
     <%= f.label :city %><br>
-    <%= f.text_field :city %>
+    <%= f.text_field :city, class:
+    "form-control", placeholder: "City" %>
   </div>
   <div class="field">
-    <%= f.label :usstate %><br>
-    <%= f.text_field :usstate %>
+    <%= f.label :state %><br>
+    <%= f.text_field :usstate, class:
+    "form-control", placeholder: "State" %>
   </div>
   <div class="field">
     <%= f.label :zip %><br>
-    <%= f.text_field :zip %>
+    <%= f.text_field :zip, class:
+    "form-control", placeholder: "12345" %>
   </div>
   <div class="field">
     <%= f.label :emerg_name %><br>
-    <%= f.text_field :emerg_name %>
+    <%= f.text_field :emerg_name, class:
+    "form-control", placeholder: "Emegency Contact Name" %>
   </div>
   <div class="field">
     <%= f.label :emerg_phone %><br>
-    <%= f.text_field :emerg_phone %>
+    <%= f.text_field :emerg_phone, class:
+    "form-control", placeholder: "985-555-5555" %>
   </div>
   <div class="actions">
     <%= f.submit %>
