@@ -3,26 +3,33 @@
 <p>
   &nbsp
 </p>
-<p>
-<%= image_tag @dog.avatar.url(:medium), class: "img-responsive" %>
-<p>
-  <strong>Name:</strong>
-  <%= @dog.name %>
-</p>
+<div class=:"row">
+  <div class= "col-sm-4">
+    <%= image_tag @dog.avatar.url(:medium), class: "img-responsive" %>
+  </div>
+</div>
+
+<div class= "col-sm-8">
+    <h3> <%= @dog.name %><h3>
+    <%= link_to 'Edit', edit_dog_path(@dog), class: "btn btn-default btn-xs" %>
+    <%= link_to 'Back to Dogs', dogs_path, class: "btn btn-default btn-xs" %>
+    <%= link_to 'Create New Dog', new_dog_path, class: "btn btn-info btn-xs" %>
+    <%= link_to 'Delete Dog', @dog, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info btn-xs" %>
+</div>
+
 
 <p>
-  <strong>Owner:</strong>
-  <%= @dog.owner.last_first %>
+  <strong>Owner</strong>
+  <%= link_to "#{@dog.owner.first_name}" "#{@dog.owner.last_name}", owner_path(@dog.owner)%>
 </p>
-
 <p>
   <strong>Breed:</strong>
   <%= @dog.breed.breed %>
 </p>
 
 <p>
-  <strong>Dob:</strong>
-  <%= @dog.dob %>
+  <strong>Date of Birth:</strong>
+  <%= @dog.dob.stamp_like('May 1, 2015') %>
 </p>
 
 <p>
@@ -40,7 +47,3 @@
   <%= @dog.in_daycare %>
 </p>
 
-
-<%= link_to 'Edit', edit_dog_path(@dog), class: "btn btn-default btn-xs" %> |
-<%= link_to 'Back', dogs_path, class: "btn btn-default btn-xs" %>
- <%= link_to 'Create New Dog', new_dog_path, class: "btn btn-info btn-xs" %>
