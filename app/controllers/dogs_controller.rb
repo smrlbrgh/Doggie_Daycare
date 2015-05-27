@@ -4,7 +4,16 @@ class DogsController < ApplicationController
   # GET /dogs
   # GET /dogs.json
   def index
-    @dogs = Dog.all
+    #TODO: Make flash notice disappear upon a new search
+    if params[:search]
+      @dogs = Dog.where("name LIKE '%#{params[:search]}%'")
+      if @dogs.size.zero?
+        flash[:notice] = 'No result found.'
+        @dogs = Dog.all
+      end
+    else
+      @dogs = Dog.all
+    end
   end
 
   # GET /dogs/1
@@ -42,7 +51,7 @@ class DogsController < ApplicationController
   def update
     respond_to do |format|
       if @dog.update(dog_params)
-        format.html { redirect_to @dog, notice: 'Dog was successfully updated.' }
+        format.html { redirect_to @dog_path, notice: 'Dog was successfully updated.' }
         format.json { render :show, status: :ok, location: @dog }
       else
         format.html { render :edit }

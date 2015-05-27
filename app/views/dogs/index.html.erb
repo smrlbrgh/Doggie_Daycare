@@ -12,7 +12,20 @@
         <%= image_tag dog.avatar.url(:medium), class: "img-responsive" %>
         </div>
         <div class="panel-footer">
-        <!-- In Daycare? <%# dog.in_daycare %> -->
+          <!-- In Daycare? <%# dog.in_daycare %> -->
+          <!-- check in/out box -->
+          <%= form_for(dog, url: dog_path(dog), :html => {class: "form-inline"}) do |f| %>
+          <% if dog.in_daycare %>
+            <%= f.hidden_field :in_daycare, :value => false %>
+            <%= f.submit "Check Out", class: "btn btn-warning btn-xs" %>
+          <% else %>
+            <%= f.hidden_field :in_daycare, :value => true %>
+            <%= f.submit "Check In", class: "btn btn-success btn-xs" %>
+            <% end %>
+          <% end %>
+
+
+
         <%= link_to ' ', dog, class: "fa fa-picture-o" %>
         <%= link_to ' ', edit_dog_path(dog), class: "fa fa-pencil-square-o" %>
         <%= link_to ' ', dog, method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash-o" %>
