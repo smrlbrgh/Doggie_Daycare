@@ -38,7 +38,8 @@ gem 'starter_generators'
 gem 'awesome_print'
 gem 'annotate'
 gem 'stamp'
-gem 'paperclip', "~> 4.2"
+gem "paperclip", "~> 4.2"
+gem 'devise'
 
 group :development do
   gem 'quiet_assets'
