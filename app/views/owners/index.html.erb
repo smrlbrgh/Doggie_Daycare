@@ -1,5 +1,13 @@
 <h1>Listing owners</h1>
 
+<!-- Search box for dogs -->
+  <%= form_tag("/owners", method: "get", role: "search", class: "navbar-form navbar-left") do %>
+    <div class="form-group">
+    <%= text_field_tag(:search, nil, placeholder: "Owner Last Name", class: "form-control input-sm") %>
+    </div>
+    <%= submit_tag("Search", class: "btn btn-default btn-sm") %>
+  <% end %>
+
 <table class= "table">
   <thead>
     <tr>
