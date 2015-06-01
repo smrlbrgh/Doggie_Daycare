@@ -32,12 +32,12 @@
     <%= f.text_field :brand %>
   </div>
   <div class="field">
-    <%= f.label :rating %><br>
-    <%= f.number_field :rating %>
-  </div>
-  <div class="field">
     <%= f.label :category_id %><br>
-    <%= f.text_field :category_id %>
+    <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: "Select a categoy"}, {class: "form-control"} %>
+  </div>
+    <div class="field">
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
   </div>
   <div class="actions">
     <%= f.submit %>
