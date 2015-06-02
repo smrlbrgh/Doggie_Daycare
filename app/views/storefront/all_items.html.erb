@@ -1,7 +1,15 @@
 <h1>Welcome to Doggie Daycare Merchant store</h1>
 <p>Find all of your doggie care items here!</p>
 
-<h2>All Items</h2>
+<!-- TODO: Add logic to handle when cat id returns nil(do in controller) -->
+<% if params[:cat_id] %>
+  <h3>All <%= @category.name.capitalize %></h3>
+<% else %>
+  <h3>All Items</h3>
+<% end %>
+
+
+
 <div class="row">
   <% @products.each do |product| %>
     <div class="col-sm-4">
