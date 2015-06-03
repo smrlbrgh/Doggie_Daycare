@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  resources :orders
+
+  resources :line_items
+
+  resources :carts
+
+  get 'storefront/all_items'
+
+  resources :products
+
+  resources :categories
+
   devise_for :users
   get 'pages/index'
 

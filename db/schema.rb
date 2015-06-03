@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150528145725) do
+ActiveRecord::Schema.define(version: 20150603141806) do
 
   create_table "breeds", force: true do |t|
     t.string   "breed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "carts", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -38,6 +49,30 @@ ActiveRecord::Schema.define(version: 20150528145725) do
   add_index "dogs", ["breed_id"], name: "index_dogs_on_breed_id"
   add_index "dogs", ["owner_id"], name: "index_dogs_on_owner_id"
 
+  create_table "line_items", force: true do |t|
+    t.integer  "product_id"
+    t.integer  "cart_id"
+    t.integer  "quantity",   default: 1
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "order_id"
+  end
+
+  add_index "line_items", ["cart_id"], name: "index_line_items_on_cart_id"
+  add_index "line_items", ["order_id"], name: "index_line_items_on_order_id"
+  add_index "line_items", ["product_id"], name: "index_line_items_on_product_id"
+
+  create_table "orders", force: true do |t|
+    t.string   "name"
+    t.text     "address"
+    t.string   "pay_type"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id"
+
   create_table "owners", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -52,6 +87,24 @@ ActiveRecord::Schema.define(version: 20150528145725) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "products", force: true do |t|
+    t.string   "name"
+    t.decimal  "price"
+    t.integer  "quantity"
+    t.text     "description"
+    t.string   "brand"
+    t.integer  "rating"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
+  add_index "products", ["category_id"], name: "index_products_on_category_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

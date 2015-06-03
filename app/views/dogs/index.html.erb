@@ -1,3 +1,15 @@
+<p>
+  &nbsp
+</p>
+
+<!-- Search box for dogs -->
+<%= form_tag("/dogs", method: "get", role: "search", class: "navbar-form navbar-right") do %>
+  <div class="form-group">
+    <%= text_field_tag(:search, nil, placeholder: "Fido", class: "form-control input-sm") %>
+    </div>
+    <%= submit_tag("Search", class: "btn btn-default btn-sm") %>
+<% end %>
+
 <h1>Listing dogs</h1>
 
 <div class="row">
