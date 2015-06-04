@@ -23,5 +23,13 @@ Breed.create(breed: 'Yorkie')
 Breed.create(breed: 'Boxer')
 
 
+
+5.times do |owner|
+  Owner.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, primary_phone: Faker::PhoneNumber.phone_number, emerg_name: Faker::Name.name, emerg_phone: Faker::PhoneNumber.phone_number)
+end
+
+
+
 categories = Category.create([{name: 'toys'}, {name:'treats'},
   {name: 'food'}, {name: 'accessories'}])
+

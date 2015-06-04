@@ -13,8 +13,7 @@
 <h1>Listing dogs</h1>
 
 <div class="row">
-
-  <% @dogs.each do |dog| %>
+  <% @dogs.order("name") do |dog| %>
     <div class="col-md-3">
       <div class="panel panel-default <%='panel-success' if dog.in_daycare %>">
         <div class="panel-heading">
@@ -35,6 +34,7 @@
             <%= f.submit "Check In", class: "btn btn-success btn-xs" %>
             <% end %>
           <% end %>
+
 
 
 
