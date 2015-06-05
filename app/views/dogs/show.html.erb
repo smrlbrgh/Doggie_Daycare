@@ -3,43 +3,43 @@
 </p>
 <div class="row">
   <div class= "col-sm-4">
-    <%= image_tag @dog.avatar.url(:medium), class: "img-responsive" %>
+    <%= image_tag @dog.avatar.url(:medium), class: "img-responsive dog-show" %>
   </div>
-</div>
 
-<div class= "col-sm-8">
-    <h3> <%= @dog.name %><h3>
-    <%= link_to 'Edit', edit_dog_path(@dog), class: "btn btn-default btn-xs" %>
-    <%= link_to 'Back to Dogs', dogs_path, class: "btn btn-default btn-xs" %>
-    <%= link_to 'Create New Dog', new_dog_path, class: "btn btn-info btn-xs" %>
-    <%= link_to 'Delete Dog', @dog, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info btn-xs" %>
-  <p>
-    <strong>Owner</strong>
-    <%= link_to "#{@dog.owner.first_name}" "#{@dog.owner.last_name}", owner_path(@dog.owner)%>
-  </p>
-  <p>
-    <strong>Breed:</strong>
-    <%= @dog.breed.breed %>
-  </p>
+    <div class= "col-sm-8">
+        <h1> <%= "#{@dog.name} #{@dog.owner.last_name}" %></h1>
+        <%= link_to 'Back to Dogs', dogs_path, class: "btn btn-default btn-xs" %>
+        <%= link_to 'Edit', edit_dog_path(@dog), class: "btn btn-default btn-xs" %>
+        <%= link_to 'Create New Dog', new_dog_path, class: "btn btn-info btn-xs" %>
+        <%= link_to 'Delete Dog', @dog, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info btn-xs" %>
+          <p>
+          <br>
+            <strong>Owner</strong>
+            <%= link_to "#{@dog.owner.first_name}" "#{@dog.owner.last_name}", owner_path(@dog.owner)%>
+          </p>
+          <p>
+            <strong>Breed:</strong>
+            <%= @dog.breed.breed %>
+          </p>
 
-  <p>
-    <strong>Birthday:</strong>
-    <%= @dog.dob.stamp_like('May 1, 2015') %>
-  </p>
+          <p>
+            <strong>Birthday:</strong>
+            <%= @dog.dob.stamp_like('May 1, 2015') %>
+          </p>
 
-  <p>
-    <strong>Vet:</strong>
-    <%= @dog.vet %>
-  </p>
+          <p>
+            <strong>Vet:</strong>
+            <%= @dog.vet %>
+          </p>
 
-  <p>
-    <strong>Vet phone:</strong>
-    <%= @dog.vet_phone %>
-  </p>
+          <p>
+            <strong>Vet phone:</strong>
+            <%= @dog.vet_phone %>
+          </p>
 
-  <p>
-    <strong>In daycare:</strong>
-    <%= @dog.in_daycare %>
-  </p>
-
+          <p>
+            <strong>In daycare:</strong>
+            <%= @dog.in_daycare %>
+          </p>
+      </div>
 </div>

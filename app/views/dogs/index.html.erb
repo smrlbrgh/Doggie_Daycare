@@ -1,19 +1,25 @@
 <p>
   &nbsp
 </p>
+<h1>Puppy Pals</h1>
+
 
 <!-- Search box for dogs -->
-<%= form_tag("/dogs", method: "get", role: "search", class: "navbar-form navbar-right") do %>
-  <div class="form-group">
-    <%= text_field_tag(:search, nil, placeholder: "Fido", class: "form-control input-sm") %>
+<div class="row">
+  <div class="col-sm-12">
+  <%= form_tag("/dogs", method: "get", role: "search", class: "form-inline") do %>
+    <div class="form-group">
+      <%= text_field_tag(:search, nil, placeholder: "Fido", class: "form-control input-sm") %>
     </div>
     <%= submit_tag("Search", class: "btn btn-default btn-sm") %>
-<% end %>
+  <% end %>
+  </div>
+</div>
 
-<h1>Listing dogs</h1>
+<br>
 
 <div class="row">
-  <% @dogs.order("name") do |dog| %>
+  <% @dogs.each do |dog| %>
     <div class="col-md-3">
       <div class="panel panel-default <%='panel-success' if dog.in_daycare %>">
         <div class="panel-heading">
