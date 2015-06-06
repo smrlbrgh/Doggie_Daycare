@@ -15,7 +15,7 @@
         <td><%= item.product.name %></td>
         <td><%= item.quantity %></td>
         <td><%= number_to_currency item.product.price %></td>
-        <td><%= number_to_currency item.total_price %></td>
+        <td><%= number_to_currency item.total_price %> <%= button_to "Delete", @line_item, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger btn-sm", form: {style: 'display: inline-block;'} %></td>
       </tr>
     <% end  %>
   </tbody>

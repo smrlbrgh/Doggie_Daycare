@@ -55,15 +55,17 @@
         <li><%= link_to "About", pages_about_url %></li>
       </ul>
 
+      <!-- Shopping Cart Section -->
+      <ul class="nav navbar-nav navbar-right">
+
+
+      </ul>
 
 
       <!-- User Login Section -->
       <%# TODO Add Bootstrap Dropdown Component with log in fields %>
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
-            <li>
-              <% current_user.email %>
-            </li>
             <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %>
             </li>
           <% else %>

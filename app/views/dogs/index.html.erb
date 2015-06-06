@@ -23,38 +23,76 @@
     <div class="col-md-3">
       <div class="panel panel-default <%='panel-success' if dog.in_daycare %>">
         <div class="panel-heading">
-          <h3 class="panel-title"><%= dog.name %> <%= dog.owner.last_name %></h3>
-        </div>
+          <h3 class="panel-title"><a href="#" data-toggle="modal" data-target="#myModal_<%= dog.id%>"</a><%= dog.name %> <%= dog.owner.last_name %></h3>
+        </div> <!-- closes panel heading -->
+
+
         <div class="panel-body">
-        <%= image_tag dog.avatar.url(:medium), class: "img-responsive" %>
-        </div>
+        <p><a href="#" data-toggle="modal" data-target="#myModal_<%= dog.id%>">
+          <%= image_tag dog.avatar.url(:medium), class: "img-responsive" %></a></p>
+        </div> <!-- closes panel body -->
+
         <div class="panel-footer">
           <!-- In Daycare? <%# dog.in_daycare %> -->
           <!-- check in/out box -->
           <%= form_for(dog, url: dog_path(dog), :html => {class: "form-inline"}) do |f| %>
-          <% if dog.in_daycare %>
-            <%= f.hidden_field :in_daycare, :value => false %>
-            <%= f.submit "Check Out", class: "btn btn-warning btn-xs" %>
-          <% else %>
-            <%= f.hidden_field :in_daycare, :value => true %>
-            <%= f.submit "Check In", class: "btn btn-success btn-xs" %>
+            <% if dog.in_daycare %>
+              <%= f.hidden_field :in_daycare, :value => false %>
+              <%= f.submit "Check Out", class: "btn btn-warning btn-xs" %>
+            <% else %>
+              <%= f.hidden_field :in_daycare, :value => true %>
+              <%= f.submit "Check In", class: "btn btn-success btn-xs" %>
+              <% end %>
             <% end %>
-          <% end %>
-
-
-
-
-        <%= link_to ' ', dog, class: "fa fa-picture-o" %>
-        <%= link_to ' ', edit_dog_path(dog), class: "fa fa-pencil-square-o" %>
-        <%= link_to ' ', dog, method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash-o" %>
-        </div>
+          <%= link_to ' ', edit_dog_path(dog), class: "fa fa-pencil-square-o" %>
+          <%= link_to ' ', dog, method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash-o" %>
+          </div>
       </div>
     </div>
 
 
+<!-- Modal -->
+      <div class="modal fade" id="myModal_<%= dog.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel"><%= dog.name %> <%= dog.owner.last_name %></h4>
+            </div>  <!-- modal header -->
+            <div class="modal-body">
+              <center><%= image_tag dog.avatar.url(:medium), class: "img-responsive" %></center>
+
+              <div class="row">
+              <div style="margin: 0 auto; width: 300px;">
+
+              <p>&nbsp;</p>
+                <p>
+                  <strong>Owner Name:</strong>
+                  <%= dog.owner.first_name %> <%= dog.owner.last_name %>
+                </p>
+                <p>
+                  <strong>Breed:</strong>
+                  <%= dog.breed.breed %>
+                </p>
+                <p>
+                  <strong>Birthday</strong>
+                  <%= dog.dob.stamp_like("May 1, 2010") %>
+                </p>
+                <p>
+                  <strong>Vet Contact</strong>
+                  <%= dog.vet %> <%= dog.vet_phone %>
+                </p>
+
+              </div> <!-- closes row style -->
+
+              </div> <!-- closes row -->
+            </div> <!-- closes Modal body -->
+          </div> <!-- modal content -->
+
+        </div> <!-- modal dialog -->
+
+      </div>
   <% end %>
-</div> <!-- row -->
+</div>
 
-<br>
-
-<%= link_to 'New Dog', new_dog_path, class: "btn btn-success btn-xs" %>
+<%= link_to 'New Dog', new_dog_path, class: "btn btn-info" %>

@@ -29,7 +29,6 @@ Breed.create(breed: 'Boxer')
 end
 
 
-
 categories = Category.create([{name: 'toys'}, {name:'treats'},
   {name: 'food'}, {name: 'accessories'}])
 
