@@ -55,16 +55,11 @@
         <li><%= link_to "About", pages_about_url %></li>
       </ul>
 
-      <!-- Shopping Cart Section -->
-      <ul class="nav navbar-nav navbar-right">
 
-
-      </ul>
-
-
-      <!-- User Login Section -->
-      <%# TODO Add Bootstrap Dropdown Component with log in fields %>
         <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Shopping Cart", carts_path %></li>
+          <!-- User Login Section -->
+          <%# TODO Add Bootstrap Dropdown Component with log in fields %>
           <% if user_signed_in? %>
             <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %>
             </li>
@@ -94,5 +89,17 @@
 
     <%= yield %>
   </div>
+  <div class="row">
+    <footer class="footer-gray">
+    <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook fa-3x fa-social"></i></a>
+    <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter fa-3x fa-social"></i></a>
+    <a href="https://www.linkedin.com/" target="_blank"><i class="fa fa-linkedin fa-3x fa-social"></i></a>
+    <a href="https://www.pinterest.com/" target="_blank"><i class="fa fa-pinterest fa-3x fa-social"></i></a>
+    </footer>
+    <footer class="footer-black">
+    <p>All Rights Reserved <i class="fa fa-copyright"></i> <%= Time.now.year %></p>
+    </footer>
+  </div>
 </body>
+
 </html>

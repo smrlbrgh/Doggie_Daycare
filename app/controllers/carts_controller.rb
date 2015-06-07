@@ -1,4 +1,5 @@
 class CartsController < ApplicationController
+  include CurrentCart
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
 
@@ -7,11 +8,14 @@ class CartsController < ApplicationController
   def index
     @carts = Cart.all
     respond_with(@carts)
-  end
+  end # ends index
 
   def show
-    respond_with(@cart)
+    begin
+      @cart = Cart.find(params[:id])
+    end
   end
+
 
   def new
     @cart = Cart.new
@@ -67,4 +71,13 @@ class CartsController < ApplicationController
       logger.error "Attempt to access invalid cart #{params[:id]}"
       redirect_to storefront_all_items_path, notice: "Invalid cart."
     end
-end
+
+    def current_cart
+      Cart.find(session[:id])
+    rescue ActiveRecord::RecordNotFound
+      cart = Cart.create
+      session[cart_id] = cart.id
+      cart
+    end
+  end
+
