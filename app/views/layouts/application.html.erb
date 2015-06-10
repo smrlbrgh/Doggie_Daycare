@@ -57,9 +57,10 @@
 
 
         <ul class="nav navbar-nav navbar-right">
+        <%# TODO: Add Correct shopping cart functionality -->
             <li><%= link_to "Shopping Cart", carts_path %></li>
           <!-- User Login Section -->
-          <%# TODO Add Bootstrap Dropdown Component with log in fields %>
+          <%# TODO: Add Bootstrap Dropdown Component with log in fields %>
           <% if user_signed_in? %>
             <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %>
             </li>
