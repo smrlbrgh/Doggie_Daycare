@@ -1,6 +1,7 @@
 class DogsController < ApplicationController
   before_action :set_dog, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show, :index]
+  before_action :authenticate_admin_user!, except: [:show, :index]
 
   # GET /dogs
   # GET /dogs.json
